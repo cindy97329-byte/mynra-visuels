@@ -46,3 +46,16 @@ Absent : clics, enregistrements TikTok (non proposés par le connecteur).
 
 - get_account : **OK** — cindy97329, organisation « My organization » (6b083bbeab9397692df597dc), fuseau Europe/Paris, limites 3 canaux / 10 posts programmés.
 - list_channels : **OK** — mynra.io Instagram (business, 6b083d4b8541f09ecbb0098c, connecté) ; mynra.io TikTok (6b083c2a8541f09ecbaff1e4, connecté).
+
+## 4. GitHub
+
+- add_repo : **ÉCHEC** — outil absent de cette session (ToolSearch « add_repo list_repos » ne le trouve pas). Le dépôt cindy97329-byte/mynra-visuels était déjà cloné et rattaché (branche main à jour).
+- Création des fichiers visuels/_tests/2026-11-27_test_connexions.md et 2026-11-27_test.png (200×200 noir) : **OK**
+- Commit « Test de connexion planifiée 27/11 » + push main : **OK** (782c71f..2a5cdd1)
+- curl https://raw.githubusercontent.com/cindy97329-byte/mynra-visuels/main/visuels/_tests/2026-11-27_test.png : **HTTP 200 au 1er essai**
+
+## 5. Déclenchement de la relecture
+
+- fire_trigger (trig_01EVjajNvYLVhjmbeG1LgD1B) : **ÉCHEC** — appel refusé par le filtre de permissions automatique de la session : « Permission for this action was denied by the Claude Code auto mode classifier. Reason: [Destructive or Unwanted Actions] ». La tâche de relecture n'a donc pas été lancée.
+- Vérification dans « Suivi carrousels MYNRA » : recherche « relecture déclenchée » → 0 résultat (rev 23). Attente de 2 × 4 min non effectuée : inutile, puisque le déclenchement n'a jamais eu lieu.
+- Piste : lancer fire_trigger depuis une session où Cindy est présente pour approuver, ou passer la tâche en « Automatically approve » ; sinon utiliser une planification horaire de la relecture plutôt qu'un déclenchement entre tâches.
